@@ -16,6 +16,9 @@ app.use(morgan('dev'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+// HOLD OFF FOR NOW Router: /v1/api
+app.use('/v1/api', require('./api'));
+
 // Listener
 app.listen(port, () => {
   console.log(`Server has started on ${port}.`);
