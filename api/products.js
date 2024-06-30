@@ -42,7 +42,7 @@ router.get('/:id', async (req, res, next) => {
 // PUT /v1/api/products/:id
 router.put('/:id', async (req, res, next) => {
   try {
-    const updatedProduct = await updateProduct(req.params.productId, req.body);
+    const updatedProduct = await updateProduct(req.params.id, req.body);
     res.json(updatedProduct);
   } catch (error) {
     next(error);

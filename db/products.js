@@ -15,9 +15,7 @@ async function getProductById(productId) {
   try {
     const {
       rows: [product],
-    } = await client.query(` SELECT * FROM products WHERE products.id=$1`, [
-      productId,
-    ]);
+    } = await client.query(` SELECT * FROM products WHERE id=${productId}`);
     return product;
   } catch (error) {
     throw error;
@@ -53,7 +51,7 @@ async function updateProduct(productId, fields = {}) {
     const {
       rows: [product],
     } = await client.query(
-      `UPDATE products SET ${setString} WHERE productId=${productId} RETURNING *`,
+      `UPDATE products SET ${setString} WHERE id=${productId} RETURNING *`,
       Object.values(fields)
     );
     return product;
