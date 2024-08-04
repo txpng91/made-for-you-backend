@@ -15,9 +15,7 @@ CREATE TABLE users(
     lastname VARCHAR(25) NOT NULL,
     username VARCHAR(25) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    telephone VARCHAR(25) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    telephone VARCHAR(25) NOT NULL
 );
 
 -- Create a user
@@ -28,9 +26,7 @@ VALUES ('Pete', 'Garcia', 'txpng91', '91Pet@rva', '8042394544');
 CREATE TABLE carts(
     id SERIAL PRIMARY KEY,
     userId INTEGER NOT NULL REFERENCES users,
-    products JSONB,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    products JSONB
 );
 
 -- Create a new cart inside table

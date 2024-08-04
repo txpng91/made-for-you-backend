@@ -17,7 +17,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 // HOLD OFF FOR NOW Router: /v1/api
-app.use('/v1/api', require('./api'));
+app.use('/api/v1', require('./api'));
 
 // Listener
 app.listen(port, () => {
